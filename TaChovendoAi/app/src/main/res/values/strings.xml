@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Tá Chovendo Aí?</string>
+
+    <string name="title_activity_home">Tá Chovendo Aí?</string>
+
+    <string name="title_activity_tela_temperatura">Estações Meteorológicas</string>
+    <string name="title_activity_tela_temperatura_detalhe">Estação</string>
+
+    <string name="ma_tv_slogan">Faça chuva ou faça sol.</string>
+    <string name="ma_btn_temperaturas">Temperaturas</string>
+    <string name="ma_btn_mapa">Mapa</string>
+    <string name="ts_tv_texto">Tá Chovendo Aí? foi criada em 21/12/2017 pelos seus fundadores Thiago Cury, Pedro Silveira, Diego Bertollo, Felipe Campos e Thiago Fortes. A intenção do projeto é manter todos os seus usuários informados a respeito do clima. Como o próprio slogan diz: \"Faça chuva ou faça sol\", estaremos sempre com você!</string>
+
+    <string name="ts_tv_titulo">SOBRE:</string>
+    <string name="title_activity_tela_mapa">Map</string>
+    <string name="toast_sucesso">Download de temperaturas efetuado com sucesso!</string>
+    <string name="toast_erro">Problemas ao realizar download!</string>
+
+    <string name="tc_tv_titulo">MENSAGENS:</string>
+    <string name="tc_btn_escrever">Escrever mensagem</string>
+    <string name="te_tv_titulo">BATE-PAPO:</string>
+    <string name="tc_et_nome">Digite seu nome!</string>
+    <string name="tc_et_mensagem">Digite sua mensagem!</string>
+
+    <string name="as_tv_sobre">Sobre o Aplicativo</string>
+    <string name="as_tv_versao">Versão: 1.0</string>
+    <string name="as_tv_ano">Ano: 2018</string>
+    <string name="as_tv_desenvolverdor">Desenvolvedores</string>
+
+    <string name="as_tv_nome_diego">Diego Bertollo</string>
+    <string name="as_tv_email_diego">diegobertollo19@gmail.com</string>
+    <string name="as_tv_nome_felipe">Felipe Campos</string>
+    <string name="as_tv_email_felipe">felipecampos395@hotmail.com</string>
+    <string name="as_tv_nome_pedro">Pedro Silveira</string>
+    <string name="as_tv_nome_raj">Ueslem Pagani</string>
+    <string name="as_tv_email_raj">ueslem71@gmail.com</string>
+    <string name="as_tv_email_pedro">pedrohenriquefsilveira@gmail.com</string>
+    <string name="as_tv_nome_thiagof">Thiago Fortes</string>
+    <string name="as_tv_email_thiagof">thiago112fortes@hotmail.com</string>
+
+    <string name="as_tv_parceiros">Parceiros</string>
+    <string name="as_tv_nome_thiago">Thiago Cury</string>
+    <string name="as_tv_app">Tá Chovendo Aí?</string>
+    <string name="redes_wifi">Wifi networks</string>
+    <string name="mapa">Map</string>
+    <string name="sobre">About</string>
+    <string name="erro">Error:</string>
+    <string name="as_tv_email_thiago">thiagocury@gmail.com</string>
+
+</resources>
