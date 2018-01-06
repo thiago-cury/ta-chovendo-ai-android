@@ -135,17 +135,31 @@ public class HomeActivity extends AppCompatActivity {
 
                         switch ((int)drawerItem.getIdentifier()){
                             case 0:
-                                Toast.makeText(getBaseContext(),"Você já está na Home!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(),"Bem Vindo a página inicial!",Toast.LENGTH_LONG).show();
                                 break;
 
                             case 10:
-                                Intent it = new Intent(HomeActivity.this, TelaTemperatura.class);
-                                startActivity(it);
+                                if(temperaturas.isEmpty()){
+                                  Toast.makeText(
+                                          getBaseContext(),
+                                          "Fazendo download de temperaturas!",
+                                          Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Intent it = new Intent(HomeActivity.this, TelaTemperatura.class);
+                                    startActivity(it);
+                                }
                                 break;
 
                             case 20:
-                                Intent it2 = new Intent(HomeActivity.this, TelaMapa.class);
-                                startActivity(it2);
+                                if(temperaturas.isEmpty()){
+                                    Toast.makeText(
+                                            getBaseContext(),
+                                            "Fazendo download de temperaturas!",
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Intent it2 = new Intent(HomeActivity.this, TelaMapa.class);
+                                    startActivity(it2);
+                                }
                                 break;
 
                             case 30:
@@ -162,15 +176,6 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }).build();
 
-
-        btnImagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(HomeActivity.this, TelaSobre.class);
-                startActivity(it);
-            }
-        });
-
         btnTemperatura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -183,6 +188,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(HomeActivity.this, TelaMapa.class);
+                startActivity(it);
+            }
+        });
+
+        btnImagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(HomeActivity.this, TelaSobre.class);
                 startActivity(it);
             }
         });

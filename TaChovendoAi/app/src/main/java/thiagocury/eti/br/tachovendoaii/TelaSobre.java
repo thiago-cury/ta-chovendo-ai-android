@@ -9,5 +9,7 @@ public class TelaSobre extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_sobre);
+
+        setTitle(getResources().getText(R.string.title_activity_home));
     }
 }

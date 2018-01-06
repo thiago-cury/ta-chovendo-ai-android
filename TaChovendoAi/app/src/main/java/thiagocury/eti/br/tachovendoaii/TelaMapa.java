@@ -1,8 +1,13 @@
 package thiagocury.eti.br.tachovendoaii;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +34,21 @@ public class TelaMapa extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        ActivityCompat.requestPermissions(TelaMapa.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+
+        if (ContextCompat.checkSelfPermission(TelaMapa.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(TelaMapa.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                Toast.makeText(
+                        getBaseContext(),
+                        getResources().getString(R.string.explicacao1) +
+                                "\n" + getResources().getString(R.string.explicacao2),
+                        Toast.LENGTH_LONG).show();
+                ActivityCompat.requestPermissions(TelaMapa.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+            } else {
+                ActivityCompat.requestPermissions(TelaMapa.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+            }
+        }
     }
 
 
@@ -44,6 +64,13 @@ public class TelaMapa extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        mMap.getUiSettings().setAllGesturesEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        if (ContextCompat.checkSelfPermission(TelaMapa.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
 
         temperaturas = HomeActivity.temperaturas;
 

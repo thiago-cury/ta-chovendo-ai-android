@@ -2,6 +2,7 @@ package thiagocury.eti.br.tachovendoaii;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,15 +44,70 @@ public class TemperaturaDetalhe extends AppCompatActivity {
         if(t != null){
             setTitle(getResources().getText(R.string.title_activity_tela_temperatura_detalhe)+" "+t.getBairro());
             tvBairro.setText(t.getBairro());
-            tvTemperaturaExterna.setText("Temperatura Externa: "+t.getTemperaturaExterna());
-            tvUmidadeExterna.setText("Umidade Externa: "+t.getTemperaturaExterna());
-            tvTemperaturaInterna.setText("Temperatura Interna: "+t.getTemperaturaInterna());
-            tvUmidadeInterna.setText("Umidade Interna: "+t.getUmidadeInterna());
-            tvPressao.setText("Pressão: "+t.getPressao());
-            tvVelocidadeVento.setText("Velocidade do Vento: "+t.getVelocidadeVento());
-            tvSensacaoTermica.setText("Sensação Térmica: "+t.getSensacaoTermica());
-            tvChuvaDiaria.setText("Chuva Diária: "+t.getChuvaDiaria());
+
+            if (t.getTemperaturaInterna() == null || t.getTemperaturaInterna().isEmpty()) {
+                tvTemperaturaInterna.setText("");
+                tvTemperaturaInterna.setVisibility(View.GONE);
+            } else {
+                tvTemperaturaInterna.setText("Temperatura Interna: " + Padronizacao.converterTemperatura(Double.parseDouble(t.getTemperaturaInterna())) + "˚C");
+            }
+
+            if (t.getUmidadeInterna() == null || t.getUmidadeInterna().isEmpty()) {
+                tvUmidadeInterna.setText("");
+                tvUmidadeInterna.setVisibility(View.GONE);
+            } else {
+                tvUmidadeInterna.setText("Umidade Interna: " + t.getUmidadeInterna() + "%");
+            }
+
+            if (t.getTemperaturaExterna() == null || t.getTemperaturaExterna().isEmpty()) {
+                tvTemperaturaExterna.setText("");
+                tvTemperaturaExterna.setVisibility(View.GONE);
+            } else {
+                tvTemperaturaExterna.setText("Temperatura Externa: " + Padronizacao.converterTemperatura(Double.parseDouble(t.getTemperaturaExterna())) + "˚C");
+            }
+
+            if (t.getUmidadeExterna() == null || t.getUmidadeExterna().isEmpty()) {
+                tvUmidadeExterna.setText("");
+                tvUmidadeExterna.setVisibility(View.GONE);
+            } else {
+                tvUmidadeExterna.setText("Umidade Externa: " + Padronizacao.converterTemperatura(Double.parseDouble(t.getUmidadeExterna())) + "%");
+            }
+
+            if (t.getChuvaDiaria() == null || t.getChuvaDiaria().isEmpty()) {
+                tvChuvaDiaria.setText("");
+                tvChuvaDiaria.setVisibility(View.GONE);
+            } else {
+                tvChuvaDiaria.setText("Chuva Diária: " + t.getChuvaDiaria() + "ml");
+            }
+
+            if (t.getVelocidadeVento() == null || t.getVelocidadeVento().isEmpty()) {
+                tvVelocidadeVento.setText("");
+                tvVelocidadeVento.setVisibility(View.GONE);
+            } else {
+                tvVelocidadeVento.setText("Velocidade do Vento: " + t.getVelocidadeVento() + "Km");
+            }
+
+            if (t.getSensacaoTermica() == null || t.getSensacaoTermica().isEmpty()) {
+                tvSensacaoTermica.setText("");
+                tvSensacaoTermica.setVisibility(View.GONE);
+            } else {
+                tvSensacaoTermica.setText("Sensação Térmica: " + Padronizacao.converterTemperatura(Double.parseDouble(t.getSensacaoTermica())) +"˚C");
+            }
+
+            if (t.getPressao() == null || t.getPressao().isEmpty()) {
+                tvPressao.setText("");
+                tvPressao.setVisibility(View.GONE);
+            } else {
+                tvPressao.setText("Pressão: " + t.getPressao());
+            }
+
             ivIcone.setImageResource(t.verificarIcone());
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -7,6 +7,19 @@
     tools:context="thiagocury.eti.br.tachovendoaii.TelaTemperatura"
     android:background="@drawable/fundo_gradiente">
 
+    <Spinner
+        android:id="@+id/tt_sp_bairro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:spinnerMode="dialog"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tt_rv_temperatura"
         android:layout_width="0dp"
@@ -19,6 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tt_sp_bairro" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tá Chovendo Aí?</string>
+    <string name="app_name">TáChovendoAí</string>
 
     <string name="title_activity_home">Tá Chovendo Aí?</string>
 
@@ -38,7 +38,7 @@
     <string name="as_tv_nome_thiagof">Thiago Fortes</string>
     <string name="as_tv_email_thiagof">thiago112fortes@hotmail.com</string>
 
-    <string name="as_tv_parceiros">Parceiros</string>
+    <string name="as_tv_parceiros">Orientador</string>
     <string name="as_tv_nome_thiago">Thiago Cury</string>
     <string name="as_tv_app">Tá Chovendo Aí?</string>
     <string name="redes_wifi">Wifi networks</string>
@@ -46,5 +46,8 @@
     <string name="sobre">About</string>
     <string name="erro">Error:</string>
     <string name="as_tv_email_thiago">thiagocury@gmail.com</string>
+
+    <string name="explicacao1">Você já negou antes essa permissão!</string>
+    <string name="explicacao2">Para mostrar a sua localização no mapa necessitamos dessa permissão!</string>
 
 </resources>

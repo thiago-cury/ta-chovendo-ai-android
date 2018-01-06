@@ -40,24 +40,24 @@ public class TemperaturaAdapter extends RecyclerView.Adapter {
         ViewHolder hold = (ViewHolder) holder;
         Temperatura t = temperaturas.get(position);
         if(t.getBairro() == null){
-            hold.tvBairro.setText("O Bairro não foi fornecido!");
+            hold.tvBairro.setText("Bairro não foi fornecido!");
         } else{
             hold.tvBairro.setText("Bairro: "+t.getBairro());
         }
         if(t.getTemperaturaExterna() == null){
-            hold.tvTemperaturaExterna.setText("A Temperatura Externa não foi fornecida!");
+            hold.tvTemperaturaExterna.setText("Temperatura Externa não foi fornecida!");
         } else{
-            hold.tvTemperaturaExterna.setText("Temperatura Externa: "+t.getTemperaturaExterna());
+            hold.tvTemperaturaExterna.setText("Temperatura Externa: "+Padronizacao.converterTemperatura(Double.parseDouble(t.getTemperaturaExterna()))+"˚C");
         }
         if(t.getSensacaoTermica() == null){
-            hold.tvSensacaoTermica.setText("A Sensação Térmica não foi fornecida!");
+            hold.tvSensacaoTermica.setText("Sensação Térmica não foi fornecida!");
         } else{
-            hold.tvSensacaoTermica.setText("Sensação Térmica: "+t.getSensacaoTermica());
+            hold.tvSensacaoTermica.setText("Sensação Térmica: "+Padronizacao.converterTemperatura(Double.parseDouble(t.getSensacaoTermica()))+"˚C");
         }
         if(t.getChuvaDiaria() == null){
-            hold.tvChuvaDiaria.setText("A Chuva Diária não foi fornecida!");
+            hold.tvChuvaDiaria.setText("Chuva Diária não foi fornecida!");
         } else{
-            hold.tvChuvaDiaria.setText("Chuva diária: "+t.getChuvaDiaria());
+            hold.tvChuvaDiaria.setText("Chuva diária: "+Padronizacao.converterTemperatura(Double.parseDouble(t.getChuvaDiaria()))+"ml");
         }
 
         hold.ivIcone.setImageResource(t.verificarIcone());

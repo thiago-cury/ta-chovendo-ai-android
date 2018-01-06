@@ -5,15 +5,22 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class TelaTemperatura extends AppCompatActivity {
 
+    private Spinner spBairro;
     private RecyclerView rvTemperatura;
     private ArrayList<Temperatura> temperaturas;
     private TemperaturaAdapter adapter;
+    private ArrayAdapter<String> adapterBairro;
+
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,7 @@ public class TelaTemperatura extends AppCompatActivity {
         setTitle(getResources().getText(R.string.title_activity_tela_temperatura));
 
         rvTemperatura = findViewById(R.id.tt_rv_temperatura);
+        spBairro = findViewById(R.id.tt_sp_bairro);
 
         temperaturas = HomeActivity.temperaturas;
 
@@ -30,6 +38,42 @@ public class TelaTemperatura extends AppCompatActivity {
         rvTemperatura.setAdapter(adapter);
         rvTemperatura.setHasFixedSize(true);
         rvTemperatura.setLayoutManager(new LinearLayoutManager(this));
+
+        final ArrayList<String> arrayBairro = new ArrayList<>();
+        arrayBairro.add("Ver todos");
+
+        for(int i=0 ; i<temperaturas.size() ; i++){
+            arrayBairro.add(temperaturas.get(i).getBairro());
+        }
+
+        adapterBairro = new ArrayAdapter<String>(
+                TelaTemperatura.this,
+                android.R.layout.simple_dropdown_item_1line,
+                arrayBairro);
+
+        spBairro.setAdapter(adapterBairro);
+
+        spBairro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position != 0){
+                    ArrayList<Temperatura> tempsSpinner = new ArrayList<>();
+                    tempsSpinner.add(temperaturas.get(position-1));
+                    adapter.setTemperaturas(tempsSpinner);
+                    adapter.notifyDataSetChanged();
+                    flag = true;
+                }else if(flag){
+                    adapter.setTemperaturas(temperaturas);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         adapter.setOnItemClickListener(new TemperaturaAdapter.ClickListener() {
             @Override
@@ -48,102 +92,8 @@ public class TelaTemperatura extends AppCompatActivity {
     }
 }
 
-//CODIGO COM O SPINNER ABAIXO
 
-/*package thiagocury.eti.br.poatime;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.mikepenz.materialdrawer.AccountHeader;
-import com.mikepenz.materialdrawer.AccountHeaderBuilder;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import retrofit2.Callback;
-
-public class TelaClima extends AppCompatActivity {
-
-    //WIDGETS
-    private Toolbar toolbar;
-    private ImageView imgClima;
-    private Spinner spBairro;
-    private RecyclerView rvClima;
-    private ArrayList<Clima>climas;
-    private ClimaAdapter adapter;
-
-    //Drawer
-    private Drawer result = null;
-
-    private boolean flag = false;
-
-    private ArrayAdapter<String> adapterBairro;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_clima);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        //REFS
-        imgClima = findViewById(R.id.fc_img_clima);
-        spBairro = findViewById(R.id.spinner);
-        rvClima = findViewById(R.id.fc_rv_clima);
-
-        final ArrayList<String> arrayBairro = new ArrayList<>();
-        arrayBairro.add("Ver todos");
-
-        adapterBairro = new ArrayAdapter<String>(TelaClima.this, android.R.layout.simple_dropdown_item_1line, arrayBairro);
-
-        spBairro.setAdapter(adapterBairro);
-
-        spBairro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != 0){
-                    ArrayList<Clima> climasSpinner = new ArrayList<>();
-                    climasSpinner.add(climas.get(position-1));
-                    adapter.setClimas(climasSpinner);
-                    adapter.notifyDataSetChanged();
-                    flag = true;
-                }else if(flag){
-                    adapter.setClimas(climas);
-                    adapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+/*
         adapter = new ClimaAdapter(TelaClima.this,new ArrayList<Clima>(0));
         rvClima.setAdapter(adapter);
         rvClima.setHasFixedSize(true);

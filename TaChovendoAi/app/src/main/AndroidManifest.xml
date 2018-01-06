@@ -8,6 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,19 +17,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+
+        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TelaSobre" />
-        <activity android:name=".TelaTemperatura" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".TelaSobre"
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"></meta-data>
+        </activity>
+
+        <activity android:name=".TelaTemperatura"
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"></meta-data>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,8 +59,14 @@
 
         <activity
             android:name=".TelaMapa"
-            android:label="@string/title_activity_tela_mapa" />
-        <activity android:name=".TemperaturaDetalhe"></activity>
-    </application>
+            android:label="@string/title_activity_tela_mapa"
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"></meta-data>
+        </activity>
 
+        <activity android:name=".TemperaturaDetalhe"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
 </manifest>
