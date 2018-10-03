@@ -1,5 +1,7 @@
 package thiagocury.eti.br.tachovendoaii;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 /**
@@ -136,16 +138,19 @@ public class Temperatura implements Serializable {
     }
 
     public int verificarIcone() {
-
-        if (iconePrevisao.equals("claro")) {
-            return R.drawable.claro;
-        } else if (iconePrevisao.equals("chuva")) {
-            return R.drawable.chuva;
-        } else if (iconePrevisao.equals("parcial")) {
-            return R.drawable.parcial;
-        } else if (iconePrevisao.equals("solechuva")) {
-            return R.drawable.solechuva;
-        } else {
+        if(iconePrevisao != null) {
+            if (iconePrevisao.equals("claro")) {
+                return R.drawable.claro;
+            } else if (iconePrevisao.equals("chuva")) {
+                return R.drawable.chuva;
+            } else if (iconePrevisao.equals("parcial")) {
+                return R.drawable.parcial;
+            } else if (iconePrevisao.equals("solechuva")) {
+                return R.drawable.solechuva;
+            } else {
+                return R.drawable.crash;
+            }
+        }else{
             return R.drawable.crash;
         }
     }
