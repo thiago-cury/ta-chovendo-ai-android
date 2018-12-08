@@ -20,4 +20,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="textview">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray500</item>
+    </style>
+
 </resources>

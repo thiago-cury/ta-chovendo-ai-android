@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="thiagocury.eti.br.tachovendoaii.TelaSobre"
+    tools:context="thiagocury.eti.br.tachovendoaii.ui.TelaSobre"
     tools:layout_editor_absoluteY="25dp"
     android:background="@drawable/fundo_gradiente">
 
@@ -292,31 +292,19 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/as_tv_nome_thiago"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/as_tv_nome_thiago"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/as_tv_orientador" />
-
-                    <TextView
-                        android:id="@+id/as_tv_email_thiago"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/as_iv_mobfeel"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="@string/as_tv_email_thiago"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/as_tv_nome_thiago" />
+                        app:layout_constraintTop_toBottomOf="@+id/as_tv_orientador"
+                        app:srcCompat="@drawable/mobfeel_logo" />
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="thiagocury.eti.br.tachovendoaii.TemperaturaDetalhe"
+    tools:context="thiagocury.eti.br.tachovendoaii.ui.TemperaturaDetalhe"
     android:background="@drawable/fundo_gradiente2">
 
     <ImageView

@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SplashScreen"
+        <activity android:name=".ui.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
@@ -29,21 +29,21 @@
         </activity>
 
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".TelaSobre"
+        <activity android:name=".ui.TelaSobre"
             android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"></meta-data>
+                android:value=".ui.HomeActivity"></meta-data>
         </activity>
 
-        <activity android:name=".TelaTemperatura"
+        <activity android:name=".ui.TelaTemperatura"
             android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"></meta-data>
+                android:value=".ui.HomeActivity"></meta-data>
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,15 +58,17 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".TelaMapa"
+            android:name=".ui.TelaMapa"
             android:label="@string/title_activity_tela_mapa"
             android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"></meta-data>
+                android:value=".ui.HomeActivity"></meta-data>
         </activity>
 
-        <activity android:name=".TemperaturaDetalhe"
+        <activity android:name=".ui.TemperaturaDetalhe"
             android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.TelaTemperatura"></meta-data>
         </activity>
     </application>
 </manifest>
